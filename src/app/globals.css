@@ -1,0 +1,516 @@
+:root {
+  --bg: #f4f3ef;
+  --card: #ffffff;
+  --ink: #1b2430;
+  --muted: #4f5b6b;
+  --line: #cfd4db;
+  --primary: #1c4e80;
+  --primary-ink: #ffffff;
+  --primary-dark: #143a60;
+  --good: #14612f;
+  --bad: #9b1c1c;
+  --warn-bg: #fff4d6;
+  --warn-line: #8a6100;
+  --focus: #0b57d0;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.9rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0.5rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+p {
+  margin: 0;
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 62rem) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.column {
+  display: grid;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(20, 30, 45, 0.06);
+}
+
+.placeholder {
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+.muted,
+.hint {
+  color: var(--muted);
+}
+
+.hint {
+  font-size: 0.9rem;
+}
+
+.strong {
+  font-weight: 650;
+}
+
+.empty-state {
+  font-size: 1.1rem;
+  padding: 1rem;
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+}
+
+/* Forms */
+
+.stack {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.field.grow {
+  flex: 1;
+}
+
+.two-up {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 34rem) {
+  .two-up {
+    grid-template-columns: 1fr;
+  }
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.7rem;
+  background: #fff;
+  border: 2px solid #7a8594;
+  border-radius: 8px;
+}
+
+input[aria-invalid="true"] {
+  border-color: var(--bad);
+  background: #fff6f6;
+}
+
+.inline-form {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.9rem 1rem 1rem;
+  margin: 0;
+  min-width: 0;
+}
+
+legend {
+  font-weight: 650;
+  padding: 0 0.4rem;
+}
+
+.mode-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border: none;
+  padding: 0;
+}
+
+.mode-toggle legend {
+  padding: 0;
+  margin-bottom: 0.4rem;
+  float: left;
+  width: 100%;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  border: 2px solid #7a8594;
+  border-radius: 999px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.chip.selected {
+  border-color: var(--primary);
+  background: #e6eef7;
+  color: var(--primary-dark);
+}
+
+.chip input,
+.check input {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--primary);
+}
+
+.checks li {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.check {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 500;
+  min-height: 2.25rem;
+}
+
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+/* Buttons */
+
+button {
+  font: inherit;
+  font-weight: 650;
+  min-height: 2.75rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+button.small {
+  min-height: 2.25rem;
+  padding: 0.2rem 0.8rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+button.primary {
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+
+button.primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+button.secondary {
+  background: #fff;
+  color: var(--primary-dark);
+  border-color: var(--primary);
+}
+
+button.secondary:hover:not(:disabled) {
+  background: #e6eef7;
+}
+
+button.danger {
+  color: var(--bad);
+  border-color: var(--bad);
+}
+
+button.danger:hover:not(:disabled) {
+  background: #fdeeee;
+}
+
+button:disabled {
+  background: #e3e6ea;
+  color: #5b6573;
+  border-color: #aab2bd;
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Messages: each carries a text marker so color is never the only signal */
+
+.error {
+  overflow-wrap: anywhere;
+  color: var(--bad);
+  font-weight: 600;
+  margin-top: 0.4rem;
+}
+
+.error::before {
+  content: "Error: ";
+  font-weight: 700;
+}
+
+.notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--warn-bg);
+  border: 2px solid var(--warn-line);
+  border-radius: var(--radius);
+}
+
+.notice span::before {
+  content: "Notice: ";
+  font-weight: 700;
+}
+
+.submit-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.save-reason {
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-weight: 600;
+  flex: 1 1 14rem;
+}
+
+/* Percent form */
+
+.percent-row {
+  padding: 0.4rem 0;
+}
+
+/* Wraps instead of using fixed columns, so the helper button drops under the input on narrow cards. */
+.percent-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.percent-line label {
+  flex: 1 1 9rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.percent-line button {
+  flex: 0 0 auto;
+}
+
+.percent-input {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 0 1 8rem;
+  min-width: 0;
+}
+
+.percent-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.total-line {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.total-exact {
+  color: var(--good);
+}
+
+.total-exact::before {
+  content: "OK: ";
+}
+
+.total-under::before,
+.total-over::before,
+.total-invalid::before {
+  content: "Check: ";
+}
+
+.total-under,
+.total-over,
+.total-invalid {
+  color: var(--bad);
+}
+
+/* Lists and summary */
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #e6e8ec;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row > :first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.row > button,
+.record > button {
+  flex-shrink: 0;
+}
+
+.record {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e6e8ec;
+}
+
+.record:last-child {
+  border-bottom: none;
+}
+
+.record-main {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.amount {
+  font-variant-numeric: tabular-nums;
+  margin-left: 0.4rem;
+}
+
+.balance {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.balance-owed {
+  color: var(--good);
+}
+
+.balance-owes {
+  color: var(--bad);
+}
+
+.balance-settled {
+  color: var(--muted);
+}
+
+.settled {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--good);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
